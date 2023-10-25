@@ -12,12 +12,12 @@ const Hero = () => {
           Inspire, Transform and Conquer: Journey to Personal Excellence
         </h1>
         <p
-          className={` font-poppins font-normal text-gray-500 text-[18px] leading-[30.8px] max-w-[470px] mt-5 sm:text-left text-center`}
+          className={` font-poppins font-normal text-gray-500 ss:text-[18px] text-[16px] ss:leading-[30.8px] leading-[20px] max-w-[470px] mt-5 sm:text-left text-center`}
         >
           In this captivating blog, embark on a transformative journey to
           unravel the mysteries of self-inspiration and empowerment.
         </p>
-        <button className={`w-[150px] h-[60px] bg-gray-900 text-white font-poppins text-[18px] rounded-full mt-5`}>Subscribe</button>
+        <button className={`w-[150px] ss:h-[60px] h-[50px] bg-gray-900 text-white font-poppins  ss:text-[18px] text-[16px] rounded-full mt-5`}>Subscribe</button>
       </div>
       <div className={`flex-1 flex justify-center items-center`}>
         <img

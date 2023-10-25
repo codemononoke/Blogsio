@@ -24,14 +24,15 @@ app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(cookieParser());
 app.use(morgan("dev"));
 app.use(
-	fileUpload({
-		useTempFiles:true,
-		tempFileDir:"/tmp",
-	})
-)
+  fileUpload({
+    useTempFiles: true,
+    tempFileDir: "/tmp",
+  })
+);
 
 app.use("/api/v1/auth", require("./routes/auth.route"));
 app.use("/api/v1/profile", require("./routes/profile.route"));
+app.use("/api/v1/blog", require("./routes/blog.route"));
 
 const PORT = process.env.PORT || 8800;
 

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-hot-toast";
-import { setAccessToken } from "../../redux/auth/authSlice";
+import { setAccessToken } from "../../redux/authSlice";
 import { apiConnector } from "../../api/apiConnector";
 import { authEndpoints } from "../../api/apis";
 import { setUser, setLoading } from "../../redux/profileSlice";
@@ -10,13 +10,19 @@ import { setUser, setLoading } from "../../redux/profileSlice";
 const SignInPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const { access_token } = useSelector((state) => state.auth);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
   const { email, password } = formData;
+
+  useEffect(() => {
+    if (access_token && access_token !== null) {
+      navigate("/");
+    }
+  }, [access_token, navigate]);
 
   const handleChange = (e) => {
     setFormData((prevData) => ({
@@ -68,7 +74,7 @@ const SignInPage = () => {
 
   return (
     <div
-      className={` sm:px-16 px-6 h-[100%] mt-[40px] flex justify-center items-center`}
+      className={` sm:px-16 px-6 h-[100%] mt-[40px] mb-[109px] flex justify-center items-center`}
     >
       <form
         className={`flex flex-col items-center w-full max-w-[500px]`}

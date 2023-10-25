@@ -5,10 +5,17 @@ import { MdOutlineClose } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import ProfileDropdown from "../ProfileDropdown";
+import { HashLink } from "react-router-hash-link";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const { access_token } = useSelector((state) => state.auth);
+
+  const scrollWidthOffset = (el) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+    const yOffset = -110;
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
+  };
 
   return (
     <div className={`w-full flex py-6 justify-between items-center`}>
@@ -26,17 +33,35 @@ const Navbar = () => {
           <li
             className={`font-poppins font-normal cursor-pointer text-[16px] text-black mr-5`}
           >
-            Self-Discovery
+            <HashLink
+              smooth
+              to="/#selfDiscovery"
+              scroll={(el) => scrollWidthOffset(el)}
+            >
+              Self-Discovery
+            </HashLink>
           </li>
           <li
             className={`font-poppins font-normal cursor-pointer text-[16px] text-black mr-5`}
           >
-            Work-Life Balance
+            <HashLink
+              smooth
+              to="/#workLifeBalance"
+              scroll={(el) => scrollWidthOffset(el)}
+            >
+              Work-Life Balance
+            </HashLink>
           </li>
           <li
             className={`font-poppins font-normal cursor-pointer text-[16px] text-black mr-5`}
           >
-            Mindset Mastery
+            <HashLink
+              smooth
+              to="/#mindsetMastery"
+              scroll={(el) => scrollWidthOffset(el)}
+            >
+              Mindset Mastery
+            </HashLink>
           </li>
           <li className={` w-[1.5px] h-6 bg-gray-300 mr-5`}></li>
         </ul>
@@ -73,17 +98,38 @@ const Navbar = () => {
               <li
                 className={`font-poppins font-normal cursor-pointer text-[16px] text-black mb-5`}
               >
-                Self-Discovery
+                <HashLink
+                  smooth
+                  to="/#selfDiscovery"
+                  scroll={(el) => scrollWidthOffset(el)}
+                  onClick={() => setToggle((prev) => !prev)}
+                >
+                  Self-Discovery
+                </HashLink>
               </li>
               <li
                 className={`font-poppins font-normal cursor-pointer text-[16px] text-black mb-5`}
               >
-                Work-Life Balance
+                <HashLink
+                  smooth
+                  to="/#workLifeBalance"
+                  scroll={(el) => scrollWidthOffset(el)}
+                  onClick={() => setToggle((prev) => !prev)}
+                >
+                  Work-Life Balance
+                </HashLink>
               </li>
               <li
                 className={`font-poppins font-normal cursor-pointer text-[16px] text-black`}
               >
-                Mindset Mastery
+                <HashLink
+                  smooth
+                  to="/#mindsetMastery"
+                  scroll={(el) => scrollWidthOffset(el)}
+                  onClick={() => setToggle((prev) => !prev)}
+                >
+                  Mindset Mastery
+                </HashLink>
               </li>
             </ul>
           </div>

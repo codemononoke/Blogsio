@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { setLoading, setSignUpData } from "../../redux/auth/authSlice";
+import { setLoading, setSignUpData } from "../../redux/authSlice";
 import { apiConnector } from "../../api/apiConnector";
 import { authEndpoints } from "../../api/apis";
 
@@ -25,7 +25,7 @@ const SignUpPage = () => {
     if (access_token && access_token !== null) {
       navigate("/");
     }
-  }, [access_token]);
+  }, [access_token, navigate]);
 
   const handleChange = (e) => {
     setFormData((prevData) => ({
@@ -71,7 +71,7 @@ const SignUpPage = () => {
 
   return (
     <div
-      className={` sm:px-16 px-6 h-[100%] mt-[40px] flex justify-center items-center`}
+      className={` sm:px-16 px-6 h-[100%] my-[40px] flex justify-center items-center`}
     >
       <form
         className={`flex flex-col items-center w-full max-w-[500px]`}

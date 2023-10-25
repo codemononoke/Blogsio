@@ -6,6 +6,9 @@ import SignInPage from "./pages/SignInPage";
 import ProfilePage from "./pages/ProfilePage";
 import SettingPage from "./pages/SettingPage";
 import AddBlogPage from "./pages/AddBlogPage";
+import BlogDetailPage from "./pages/BlogDetailPage";
+import MyBlogsPage from "./pages/MyBlogsPage";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -15,9 +18,39 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="sign-up" element={<SignUpPage />} />
           <Route path="sign-in" element={<SignInPage />} />
-          <Route path="profile" element={<ProfilePage />} />
-          <Route path="setting" element={<SettingPage />} />
-          <Route path="add-blog" element={<AddBlogPage />} />
+          <Route
+            path="profile"
+            element={
+              <PrivateRoute>
+                <ProfilePage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="setting"
+            element={
+              <PrivateRoute>
+                <SettingPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="add-blog"
+            element={
+              <PrivateRoute>
+                <AddBlogPage />
+              </PrivateRoute>
+            }
+          />
+          <Route path="blog/:id" element={<BlogDetailPage />} />
+          <Route
+            path="my-blogs"
+            element={
+              <PrivateRoute>
+                <MyBlogsPage />
+              </PrivateRoute>
+            }
+          />
         </Route>
       </Routes>
     </div>

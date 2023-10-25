@@ -35,12 +35,6 @@ const UserSchema = new Schema(
       required: true,
       ref: "Profile",
     },
-    blogs: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Blog",
-      },
-    ],
     token: {
       type: Schema.Types.String,
     },

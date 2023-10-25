@@ -9,3 +9,11 @@ export const settingEndpoints = {
   UPDATE_DISPLAY_PICTURE_API: `${BASE_URL}/profile/updateDisplayPicture`,
   UPDATE_PROFILE_API: `${BASE_URL}/profile/updateProfile`,
 };
+
+export const blogEndpoints = {
+  GET_ALL_BLOGS_API: `${BASE_URL}/blog/getAllBlogs`,
+  GET_BLOG_BY_ID: `${BASE_URL}/blog/getBlogById`,
+  CREATE_BLOG_API: `${BASE_URL}/blog/createBlog`,
+  EDIT_BLOG_API: `${BASE_URL}/blog/editBlog`,
+  DELETE_BLOG_API: `${BASE_URL}/blog/deleteBlog`,
+};
