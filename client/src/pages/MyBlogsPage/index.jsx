@@ -49,6 +49,7 @@ const MyBlogsPage = () => {
                 </p>
               </div>
             ))}
+          
         </div>
       </div>
     </div>

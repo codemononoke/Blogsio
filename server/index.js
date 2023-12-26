@@ -11,8 +11,6 @@ const path = require("path");
 
 const app = express();
 
-app.use("/images", express.static(path.join(__dirname, "public/images")));
-
 app.use(
   cors({
     origin: "http://localhost:3000",
@@ -33,6 +31,12 @@ app.use(
 app.use("/api/v1/auth", require("./routes/auth.route"));
 app.use("/api/v1/profile", require("./routes/profile.route"));
 app.use("/api/v1/blog", require("./routes/blog.route"));
+
+app.use(express.static(path.join(__dirname, "../client/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
 const PORT = process.env.PORT || 8800;
 

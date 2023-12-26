@@ -6,9 +6,20 @@ import { apiConnector } from "../../api/apiConnector";
 import { blogEndpoints } from "../../api/apis";
 import { useDispatch } from "react-redux";
 import { setBlogs } from "../../redux/blogSlice";
+import {useLocation} from 'react-router-dom';
 
 const HomePage = () => {
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, [pathname]);
+
   useEffect(() => {
     const getAllBlogs = async () => {
       const response = await apiConnector(
