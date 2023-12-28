@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8800/api/v1";
+const BASE_URL = "https://blogsio-p891.onrender.com/api/v1";
 
 export const authEndpoints = {
   SIGNUP_API: `${BASE_URL}/auth/signup`,

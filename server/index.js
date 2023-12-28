@@ -12,7 +12,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://sweet-moxie-f12f11.netlify.app",
     credentials: true,
   })
 );
