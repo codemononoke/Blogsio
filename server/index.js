@@ -7,7 +7,6 @@ const morgan = require("morgan");
 const fileUpload = require("express-fileupload");
 const connectDatabase = require("./config/db");
 const cloudinary = require("cloudinary").v2;
-const path = require("path");
 
 const app = express();
 
@@ -31,12 +30,6 @@ app.use(
 app.use("/api/v1/auth", require("./routes/auth.route"));
 app.use("/api/v1/profile", require("./routes/profile.route"));
 app.use("/api/v1/blog", require("./routes/blog.route"));
-
-app.use(express.static(path.join(__dirname, "../client/build")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
-});
 
 const PORT = process.env.PORT || 8800;
 

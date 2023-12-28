@@ -1,5 +1,4 @@
 const Blog = require("../models/blog.model");
-const User = require("../models/user.model");
 const { uploadImageToCloudinary } = require("../utils/imageUploader");
 const asyncHandler = require("express-async-handler");
 
