@@ -18,8 +18,6 @@
 - [x] Read and engage with other user's blogs
 - [x] Effortlessly manage profile details
 - [x] Responsive design for seamless access on all devices
-- [ ] Comment on blogs to facilitate discussions
-- [ ] Like feature for expressing appreciation
 
 ## Running Locally
 
